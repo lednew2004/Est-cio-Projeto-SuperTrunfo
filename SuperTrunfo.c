@@ -16,19 +16,24 @@ int main()
     char letraDoPrimeiroEstado;         // Variavel para escrever a letra inicial de cada estado.
     char codigoDaPrimeiraCarta[20];     // Variavel para escrever o código da carta.
     char nomeDaPrimeiraCidade[20];      // Variavel para escrever o nome da cidade.
-    int populaçãoPrimeiraCidade;        // variavel para escrever a quantidade em número da população.
+    float populaçãoPrimeiraCidade;      // variavel para escrever a quantidade em número da população.
     float areaKmPrimeiraCidade;         // Variavel para escrever a área da cidade em quilômetros quadrados(km²).
     float pibPrimeiraCidade;            // Variavel para escrever o pib(Produto Interno Bruto) da cidade.
     int pontosTuristicosPrimeiraCidade; // Variavel para escrever a quantidade de pontos turisticos da cidade.
+    float densidadePopulacional;        // Resultado da divisão da população da cidade pela área.
+    float pibPerCapita;                 // Resultado da divisão do pib pela população
 
     // Segunda carta
-    char letraDoSegundoEstado;         // Variavel para escrever a letra inicial de cada estado.
-    char codigoDaSegundaCarta[20];     // Variavel para escrever o código da carta.
-    char nomeDaSegundaCidade[20];      // Variavel para escrever o nome da cidade.
-    int populaçãoSegundaCidade;        // variavel para escrever a quantidade em número da população.
-    float areaKmSegundaCidade;         // Variavel para escrever a área da cidade em quilômetros quadrados(km²).
-    float pibSegundaCidade;            // Variavel para escrever o pib(Produto Interno Bruto) da cidade.
-    int pontosTuristicosSegundaCidade; // Variavel para escrever a quantidade de pontos turisticos da cidade.
+    char letraDoSegundoEstado;               // Variavel para escrever a letra inicial de cada estado.
+    char codigoDaSegundaCarta[20];           // Variavel para escrever o código da carta.
+    char nomeDaSegundaCidade[20];            // Variavel para escrever o nome da cidade.
+    float populaçãoSegundaCidade;            // variavel para escrever a quantidade em número da população.
+    float areaKmSegundaCidade;               // Variavel para escrever a área da cidade em quilômetros quadrados(km²).
+    float pibSegundaCidade;                  // Variavel para escrever o pib(Produto Interno Bruto) da cidade.
+    int pontosTuristicosSegundaCidade;       // Variavel para escrever a quantidade de pontos turisticos da cidade.
+    float densidadePopulacionalSegundaCarta; // Resultado da divisão da população da cidade pela área.
+    float pibPerCapitaSegundaCarta;          // Resultado da divisão do pib pela população
+
     // PRIMEIRA CARTA:
     /*Escrever a letra inicial do estado e o adicionar na variavel*/
     printf("Aqui você adicionará A letra inicial do estado, por exemplo: 'Ceará = C' . pense no estado e escreva a letra inicial dele: ");
@@ -43,7 +48,7 @@ int main()
 
     /*Escrever o numero da população que reside na cidade*/
     printf("Agora adicione o número exato da população que reside na cidade de %s: ", nomeDaPrimeiraCidade);
-    scanf("%i", &populaçãoPrimeiraCidade);
+    scanf("%f", &populaçãoPrimeiraCidade);
 
     /*Escrever á área em km  da cidade*/
     printf("Adicione á área em quimlometros quadrados(km²) da cidade. exemplo: '51.233': ");
@@ -72,7 +77,7 @@ int main()
     scanf("%s", nomeDaSegundaCidade);
 
     printf("População da cidade %s: ", nomeDaSegundaCidade);
-    scanf("%i", &populaçãoSegundaCidade);
+    scanf("%f", &populaçãoSegundaCidade);
 
     printf("Área da cidade: ");
     scanf("%f", &areaKmSegundaCidade);
@@ -86,6 +91,11 @@ int main()
     printf("\n\n\n"); // Espaçamento para exibir as cartas
     /*Exibição dos dados das duas cartas:*/
 
+    /*Calculo para densidade e pib per capita da população - primeira carta*/
+
+    densidadePopulacional = populaçãoPrimeiraCidade / areaKmPrimeiraCidade;
+    pibPerCapita = pibPrimeiraCidade / populaçãoPrimeiraCidade;
+
     printf("Carta 1:\n");
     printf("Estado: %c\n", letraDoPrimeiroEstado);
     printf("Código: %s\n", codigoDaPrimeiraCarta);
@@ -94,8 +104,14 @@ int main()
     printf("Área: %f\n", areaKmPrimeiraCidade);
     printf("PIB: %f\n", pibPrimeiraCidade);
     printf("Número de pontos turisticos: %i\n", pontosTuristicosPrimeiraCidade);
+    printf("Densidader populacional: %.3f\n", densidadePopulacional);
+    printf("PIB per Capita: %.3f\n", pibPerCapita);
 
     printf("\n\n\n"); // Espaçamento para exibir as cartas
+
+    /*Calculo para densidade e pib per capita da população - segunda carta*/
+    densidadePopulacionalSegundaCarta = populaçãoSegundaCidade / areaKmSegundaCidade;
+    pibPerCapitaSegundaCarta = pibSegundaCidade / populaçãoSegundaCidade;
 
     printf("Carta 2:\n");
     printf("Estado: %c\n", letraDoSegundoEstado);
@@ -105,5 +121,7 @@ int main()
     printf("Área: %f\n", areaKmSegundaCidade);
     printf("PIB: %f\n", pibSegundaCidade);
     printf("Número de pontos turisticos: %i\n", pontosTuristicosSegundaCidade);
+    printf("Densidader populacional: %.3f\n", densidadePopulacionalSegundaCarta);
+    printf("PIB per Capita: %.2f\n", pibPerCapitaSegundaCarta);
     return 0;
 }
